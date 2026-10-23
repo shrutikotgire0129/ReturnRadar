@@ -2,42 +2,70 @@
 
 ### Never lose track of a return deadline again.
 
-ReturnRadar is a privacy-conscious, AI-powered return deadline tracker designed to help you organize purchases, review receipt details, and keep track of return windows in one place.
+An AI-powered, privacy-conscious return tracker that helps you organize purchases, review receipt information, and stay ahead of return deadlines.
 
-Instead of guessing return deadlines, ReturnRadar prioritizes evidence from purchase information and return policies, flags uncertain details for review, and helps you make more informed decisions about your purchases.
+<p align="center">
+  <a href="https://return-radar-ruby.vercel.app/"><strong>Live Demo — Vercel</strong></a>
+  &nbsp; | &nbsp;
+  <a href="https://returnradar-0ftg.onrender.com/"><strong>Alternative Demo — Render</strong></a>
+  &nbsp; | &nbsp;
+  <a href="https://github.com/shrutikotgire0129/ReturnRadar"><strong>GitHub Repository</strong></a>
+</p>
+
+---
+
+## Overview
+
+Receipts get misplaced, return policies can be confusing, and deadlines are easy to forget. ReturnRadar brings purchase information, return tracking, and review reminders together in one dashboard.
+
+Its core principle is simple: **uncertainty should be visible, not disguised as a confirmed deadline.** When information is missing or ambiguous, ReturnRadar flags it for review rather than treating an unsupported return date as fact.
+
+## Screenshots
+
+### 1. ReturnRadar Overview
+
+View your purchases, upcoming return deadlines, and items that need attention from one dashboard.
+
+![ReturnRadar Overview](public/screenshots/ReturnRadar%20Overview.png)
+
+### 2. Add a Receipt
+
+Add a receipt and review the extracted purchase information.
+
+![Add a Receipt](public/screenshots/Add%20a%20Receipt.png)
+
+### 3. Purchase Details
+
+Review purchase information and manage the details of a tracked item.
+
+![Purchase Details](public/screenshots/Purchase%20Details.png)
 
 ---
 
 ## Features
 
-- **Receipt Intelligence** — Extract purchase information from receipts and organize it into structured records.
-- **Evidence-Based Return Tracking** — Track return deadlines when supported by available policy information.
-- **Confidence & Review Indicators** — Identify ambiguous or missing information that needs your attention.
-- **Editable Purchase Details** — Review and correct extracted information, with changes preserved.
-- **Deadline Dashboard** — View tracked purchases and upcoming return deadlines in an organized interface.
-- **Purchase Management** — Add, edit, and delete purchase records.
-- **Persistent Notifications** — Review return reminders, items requiring attention, and purchase activity.
-- **Calendar Export Safeguards** — Prevent calendar export when a return deadline is unsupported or requires review.
-- **Privacy-Conscious Design** — Keep purchase data in browser storage rather than requiring a user account.
-- **Responsive Interface** — A clean dashboard designed to make purchase tracking easier to manage.
-
-## Why ReturnRadar?
-
-Receipts are easy to lose, return policies can be confusing, and return windows can pass before you realize it.
-
-ReturnRadar aims to reduce that friction by bringing purchase information, return deadlines, and review reminders together. Its central principle is simple: **uncertainty should be visible, not disguised as a confirmed deadline.**
+- **Receipt Information Extraction** — Organize receipt details into structured purchase records.
+- **Return Deadline Tracking** — Track supported return dates and organize upcoming deadlines.
+- **Evidence-Based Handling** — Flag ambiguous or missing policy information instead of inventing confirmed deadlines.
+- **Review and Correction** — Inspect extracted information, correct fields, and preserve edits.
+- **Purchase Management** — Edit and delete saved purchase records.
+- **Dashboard and Timeline** — Review purchases and sort upcoming return deadlines.
+- **Persistent Notifications** — Track return reminders, review items, and purchase activity across page refreshes.
+- **Calendar Export Safeguards** — Restrict export when a return deadline is unsupported or requires review.
+- **Privacy-Conscious Design** — Use the current single-user experience without account registration.
+- **Clean Interface** — Manage purchase information through a focused dashboard.
 
 ## Tech Stack
 
-The project uses the following technologies:
-
-- **Framework:** Next.js with App Router
-- **Language:** TypeScript
-- **UI:** React and CSS
-- **Data Persistence:** Browser local storage
-- **Interface Components:** Base UI / shadcn-style components
-
-*Receipt-processing and AI integrations depend on the project's configured implementation.*
+| Technology | Purpose |
+|---|---|
+| Next.js | Application framework and App Router |
+| React | User interface |
+| TypeScript | Type-safe application development |
+| CSS | Styling and layout |
+| Base UI / shadcn-style components | Interface components |
+| Browser local storage | Local purchase and notification persistence |
+| Vercel and Render | Deployment |
 
 ## Getting Started
 
@@ -47,22 +75,20 @@ The project uses the following technologies:
 - npm
 - Git
 
-### Installation
-
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/shrutikotgire0129/ReturnRadar.git
 cd ReturnRadar
 ```
 
-Install dependencies:
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-Start the development server:
+### 3. Start the development server
 
 ```bash
 npm run dev
@@ -70,31 +96,29 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Production Build
-
-To create a production build:
+### 4. Create a production build
 
 ```bash
 npm run build
 ```
 
-To run the production version locally after building:
+To run the production build locally:
 
 ```bash
 npm run start
 ```
 
-## Privacy & Data Handling
+## Privacy and Data Handling
 
 ReturnRadar is designed around a privacy-conscious, single-user experience.
 
-- Purchase records are stored locally in the browser.
-- No account or authentication workflow is required for the current experience.
-- Extracted information can be reviewed and corrected.
-- Uncertain return deadlines are flagged rather than automatically treated as confirmed.
-- Calendar export is restricted when the deadline lacks sufficient support.
+- Purchase records and notification state are persisted in browser local storage in the current implementation.
+- Authentication is not required.
+- Users can review and correct extracted purchase information.
+- Uncertain return deadlines can be flagged for review.
+- Calendar export is restricted when a deadline lacks sufficient support.
 
-**Important:** Browser-local data is tied to the browser and device. Clearing site data or changing browsers can make saved purchases unavailable. Browser storage should not be treated as an encrypted backup.
+**Important:** Browser-local data is associated with the browser and device. Clearing site data or switching browsers may make saved purchases unavailable. Browser local storage is not an encrypted backup.
 
 ## Project Structure
 
@@ -109,31 +133,35 @@ return_radar/
 ├── components/
 ├── lib/
 ├── public/
+│   └── screenshots/
+│       ├── Add a Receipt.png
+│       ├── Purchase Details.png
+│       └── ReturnRadar Overview.png
 ├── package.json
 └── README.md
 ```
 
-*The exact contents may vary as development continues.*
+## Testing and Validation
 
-## Current Status
+The production build has completed successfully. Development testing has covered:
 
-ReturnRadar is an actively developed project. Core purchase management, correction persistence, deadline handling, review states, and notification behavior have been tested during development.
+- Purchase editing and persistence after refresh
+- Missing or ambiguous return information
+- Deadline ordering and dashboard consistency
+- Receipt edge cases, including blurry or incomplete information
+- Purchase deletion and confirmation behavior
+- Notification persistence and clearing behavior
+- Restrictions on unsupported calendar exports
 
-Further improvements may include expanded policy verification, additional export options, and broader testing across browsers and devices.
+## Future Improvements
 
-## Contributing
-
-Suggestions, bug reports, and improvements are welcome.
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Test the application and production build.
-5. Open a pull request describing your changes.
+Potential areas for further development include expanded receipt-format testing, stronger return-policy verification, additional export options, and broader automated test coverage.
 
 ## Author
 
 **Shruti Kotgire**
+
+- GitHub: [@shrutikotgire0129](https://github.com/shrutikotgire0129)
 
 ---
 
